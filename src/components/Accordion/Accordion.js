@@ -7,7 +7,6 @@ const Accordion = () => {
   const [clicked, setClicked] = useState(false);
 
   const toggle = (index) => {
-    console.log(clicked);
     if (clicked === index) {
       return setClicked(false);
     }
