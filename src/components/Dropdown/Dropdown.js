@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as S from './Dropdown.styles';
 
 const Dropdown = ({ data }) => {
@@ -16,6 +17,10 @@ const Dropdown = ({ data }) => {
       ))}
     </S.Dropdown>
   );
+};
+
+Dropdown.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Dropdown;

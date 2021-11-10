@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { data } from '../../utils/data';
-import { Dropdown } from '../index';
+import { AccordionItem } from '../index';
 import * as S from './Accordion.styles';
 
 const Accordion = () => {
   const [clicked, setClicked] = useState(false);
 
   const toggle = (index) => {
+    console.log(clicked);
     if (clicked === index) {
       return setClicked(false);
     }
@@ -16,24 +16,9 @@ const Accordion = () => {
 
   return (
     <S.Container>
-      {data.map((item, index) => (
-        <React.Fragment key={item.id}>
-          <S.Wrap onClick={() => toggle(index)} key={index}>
-            <S.Element>{item.id}</S.Element>
-            <h2>{item.title}</h2>
-            <S.BorderLine active={clicked === index} />
-          </S.Wrap>
-          {clicked === index ? <Dropdown data={item} /> : false}
-        </React.Fragment>
-      ))}
+      <AccordionItem data={data} toggle={toggle} clicked={clicked} />
     </S.Container>
   );
-};
-
-Accordion.propTypes = {
-  key: PropTypes.number,
-  active: PropTypes.number,
-  data: PropTypes.array,
 };
 
 export default Accordion;
